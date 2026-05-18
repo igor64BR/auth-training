@@ -1,0 +1,22 @@
+{
+  "name": "auth-training",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "(cd ./task-flow-server && npm start)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/igor64BR/auth-training.git"
+  },
+  "author": "Igor Baiocco Rodrigues",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/igor64BR/auth-training/issues"
+  },
+  "homepage": "https://github.com/igor64BR/auth-training#readme",
+  "dependencies": {
+    "@nestjs/cli": "^11.0.21"
+  }
+}
