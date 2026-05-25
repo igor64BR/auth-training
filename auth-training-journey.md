@@ -86,9 +86,9 @@ Esse modelo permite estudar tanto recursos **pessoais** (minhas próprias tasks)
 
 - [x] Inicializar projeto NestJS (`nest new auth-training`)
 - [ ] Inicializar projeto React (`npm create vite@latest taskflow-web -- --template react-ts`)
-- [ ] Subir Postgres e Redis via `docker-compose.yml`
+- [x] Subir Postgres e Redis via `docker-compose.yml`
 - [x] Modelar entidades `User`, `Workspace`, `Membership`, `Task`, `Comment` (sem auth ainda)
-- [ ] CRUD básico de tasks **sem proteção** — propositalmente vulnerável
+- [x] CRUD básico de tasks **sem proteção** — propositalmente vulnerável
 - [ ] Front-end consumindo a API, com tela de listagem e criação de tasks
 
 ### ✅ Critérios de conclusão
