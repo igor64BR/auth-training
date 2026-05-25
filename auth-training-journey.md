@@ -41,23 +41,23 @@ Esse modelo permite estudar tanto recursos **pessoais** (minhas próprias tasks)
 
 ## 🗺️ Visão geral da jornada
 
-| # | Etapa | Foco |
-|---|---|---|
-| 0 | Fundamentos & Setup | Conceitos primordiais e projeto base |
-| 1 | Autenticação por Senha | Hashing, login, registro |
-| 2 | Sessões & Cookies | Estado server-side, cookies seguros |
-| 3 | JWT & Stateless Auth | Tokens, claims, assinatura |
-| 4 | Refresh Tokens & Rotação | Sessões longas com segurança |
-| 5 | Autorização — RBAC | Roles e permissões por papel |
-| 6 | Autorização — ABAC/PBAC | Permissões por atributo e contexto |
-| 7 | Recuperação & Verificação | E-mail, reset de senha, magic links |
-| 8 | 2FA & MFA | TOTP, códigos de recuperação, fatores |
-| 9 | OAuth 2.0 & OIDC | Login social, delegação |
-| 10 | SSO Empresarial — SAML | Federação entre organizações |
-| 11 | Passkeys / WebAuthn / FIDO2 | Autenticação sem senha |
-| 12 | Segurança Avançada | CSRF, XSS, headers, rate limit, auditoria |
-| 13 | Provedor de Identidade | Keycloak/Auth0 como IdP central |
-| 14 | Zero Trust & Tópicos Modernos | Continuous auth, risk-based, mTLS |
+| #   | Etapa                         | Foco                                      |
+| --- | ----------------------------- | ----------------------------------------- |
+| 0   | Fundamentos & Setup           | Conceitos primordiais e projeto base      |
+| 1   | Autenticação por Senha        | Hashing, login, registro                  |
+| 2   | Sessões & Cookies             | Estado server-side, cookies seguros       |
+| 3   | JWT & Stateless Auth          | Tokens, claims, assinatura                |
+| 4   | Refresh Tokens & Rotação      | Sessões longas com segurança              |
+| 5   | Autorização — RBAC            | Roles e permissões por papel              |
+| 6   | Autorização — ABAC/PBAC       | Permissões por atributo e contexto        |
+| 7   | Recuperação & Verificação     | E-mail, reset de senha, magic links       |
+| 8   | 2FA & MFA                     | TOTP, códigos de recuperação, fatores     |
+| 9   | OAuth 2.0 & OIDC              | Login social, delegação                   |
+| 10  | SSO Empresarial — SAML        | Federação entre organizações              |
+| 11  | Passkeys / WebAuthn / FIDO2   | Autenticação sem senha                    |
+| 12  | Segurança Avançada            | CSRF, XSS, headers, rate limit, auditoria |
+| 13  | Provedor de Identidade        | Keycloak/Auth0 como IdP central           |
+| 14  | Zero Trust & Tópicos Modernos | Continuous auth, risk-based, mTLS         |
 
 ---
 
@@ -295,9 +295,9 @@ Esse modelo permite estudar tanto recursos **pessoais** (minhas próprias tasks)
 - [ ] `Membership` carrega o `role` do usuário naquele workspace
 - [ ] Decorator `@Roles(Role.ADMIN, Role.OWNER)` + `RolesGuard`
 - [ ] Aplicar regras de negócio:
-    - [ ] Apenas `OWNER` pode deletar o workspace
-    - [ ] `OWNER` e `ADMIN` podem convidar membros
-    - [ ] `GUEST` só pode ler tasks
+  - [ ] Apenas `OWNER` pode deletar o workspace
+  - [ ] `OWNER` e `ADMIN` podem convidar membros
+  - [ ] `GUEST` só pode ler tasks
 - [ ] UI esconde/desabilita botões conforme o papel
 - [ ] **Defesa em profundidade**: backend sempre valida, mesmo que a UI esconda
 - [ ] Endpoint `GET /workspaces/:id/permissions` retorna as permissões efetivas do usuário
@@ -335,8 +335,8 @@ Esse modelo permite estudar tanto recursos **pessoais** (minhas próprias tasks)
 ### 🛠️ Incremento no projeto
 
 - [ ] Adotar **CASL** para expressar habilidades por contexto:
-    - [ ] "Usuário pode editar uma task se for o autor **ou** for admin do workspace"
-    - [ ] "Comentário só pode ser deletado pelo autor nas primeiras 24h"
+  - [ ] "Usuário pode editar uma task se for o autor **ou** for admin do workspace"
+  - [ ] "Comentário só pode ser deletado pelo autor nas primeiras 24h"
 - [ ] Implementar `AbilityFactory` que retorna abilities por usuário+contexto
 - [ ] Guard `PoliciesGuard` que usa CASL
 - [ ] **Field-level**: ocultar `email` de outros usuários para `GUEST`
@@ -447,12 +447,12 @@ Esse modelo permite estudar tanto recursos **pessoais** (minhas próprias tasks)
 - [ ] Por que **OAuth 2.0 não é autenticação** — é autorização delegada
 - [ ] Atores: **Resource Owner**, **Client**, **Authorization Server**, **Resource Server**
 - [ ] **Grants/Flows** do OAuth 2.0:
-    - [ ] Authorization Code (recomendado para apps web)
-    - [ ] **Authorization Code + PKCE** (recomendado para SPAs e mobile)
-    - [ ] Client Credentials (machine-to-machine)
-    - [ ] Device Code (TVs, CLIs)
-    - [ ] Implicit (**obsoleto**)
-    - [ ] Resource Owner Password (**obsoleto**)
+  - [ ] Authorization Code (recomendado para apps web)
+  - [ ] **Authorization Code + PKCE** (recomendado para SPAs e mobile)
+  - [ ] Client Credentials (machine-to-machine)
+  - [ ] Device Code (TVs, CLIs)
+  - [ ] Implicit (**obsoleto**)
+  - [ ] Resource Owner Password (**obsoleto**)
 - [ ] **Scopes** — granularidade da delegação
 - [ ] **State parameter** — proteção contra CSRF
 - [ ] **PKCE** (RFC 7636) — `code_verifier` e `code_challenge`
@@ -711,33 +711,34 @@ Esse modelo permite estudar tanto recursos **pessoais** (minhas próprias tasks)
 
 # 📖 Glossário rápido
 
-| Termo | Significado |
-|---|---|
-| **AuthN** | Authentication — provar quem você é |
-| **AuthZ** | Authorization — provar o que você pode |
-| **IdP** | Identity Provider — serviço que autentica usuários |
-| **SP** | Service Provider — serviço que delega autenticação ao IdP |
-| **PEP** | Policy Enforcement Point — quem aplica a decisão |
-| **PDP** | Policy Decision Point — quem decide |
-| **JWT** | JSON Web Token |
-| **JWS / JWE** | JWT Signed / Encrypted |
-| **JWKS** | JSON Web Key Set |
-| **OIDC** | OpenID Connect — autenticação sobre OAuth 2.0 |
-| **SAML** | Security Assertion Markup Language |
-| **TOTP / HOTP** | Time / HMAC based One-Time Password |
-| **RBAC / ABAC / ReBAC** | Role / Attribute / Relationship Based Access Control |
-| **MFA / 2FA** | Multi / Two-Factor Authentication |
-| **SCIM** | System for Cross-domain Identity Management |
-| **FIDO2** | Fast IDentity Online v2 (WebAuthn + CTAP) |
-| **PKCE** | Proof Key for Code Exchange |
-| **DPoP** | Demonstrating Proof-of-Possession |
-| **SSO / SLO** | Single Sign-On / Single Logout |
+| Termo                   | Significado                                               |
+| ----------------------- | --------------------------------------------------------- |
+| **AuthN**               | Authentication — provar quem você é                       |
+| **AuthZ**               | Authorization — provar o que você pode                    |
+| **IdP**                 | Identity Provider — serviço que autentica usuários        |
+| **SP**                  | Service Provider — serviço que delega autenticação ao IdP |
+| **PEP**                 | Policy Enforcement Point — quem aplica a decisão          |
+| **PDP**                 | Policy Decision Point — quem decide                       |
+| **JWT**                 | JSON Web Token                                            |
+| **JWS / JWE**           | JWT Signed / Encrypted                                    |
+| **JWKS**                | JSON Web Key Set                                          |
+| **OIDC**                | OpenID Connect — autenticação sobre OAuth 2.0             |
+| **SAML**                | Security Assertion Markup Language                        |
+| **TOTP / HOTP**         | Time / HMAC based One-Time Password                       |
+| **RBAC / ABAC / ReBAC** | Role / Attribute / Relationship Based Access Control      |
+| **MFA / 2FA**           | Multi / Two-Factor Authentication                         |
+| **SCIM**                | System for Cross-domain Identity Management               |
+| **FIDO2**               | Fast IDentity Online v2 (WebAuthn + CTAP)                 |
+| **PKCE**                | Proof Key for Code Exchange                               |
+| **DPoP**                | Demonstrating Proof-of-Possession                         |
+| **SSO / SLO**           | Single Sign-On / Single Logout                            |
 
 ---
 
 # 📚 Recursos recomendados
 
 ### Documentação canônica
+
 - **OWASP Authentication Cheat Sheet**
 - **OWASP Authorization Cheat Sheet**
 - **OWASP Session Management Cheat Sheet**
@@ -747,16 +748,19 @@ Esse modelo permite estudar tanto recursos **pessoais** (minhas próprias tasks)
 - **OpenID Connect Core 1.0**
 
 ### Livros
-- *API Security in Action* — Neil Madden
-- *OAuth 2 in Action* — Justin Richer & Antonio Sanso
-- *Identity and Data Security for Web Development* — Jonathan LeBlanc
+
+- _API Security in Action_ — Neil Madden
+- _OAuth 2 in Action_ — Justin Richer & Antonio Sanso
+- _Identity and Data Security for Web Development_ — Jonathan LeBlanc
 
 ### Vídeos / cursos
+
 - Canal **OktaDev** no YouTube (especialmente "OAuth in 5 minutes" e séries derivadas)
 - **PortSwigger Web Security Academy** — labs gratuitos e práticos
 - **Cybr** — trilhas de application security
 
 ### Ferramentas para brincar
+
 - **jwt.io** — decodificar JWTs
 - **Burp Suite Community** — interceptar e modificar requisições
 - **OWASP ZAP** — scanner gratuito

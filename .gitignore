@@ -60,4 +60,4 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-generated/
+/src/database/generated/prisma
